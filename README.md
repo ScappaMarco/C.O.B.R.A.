@@ -1,5 +1,5 @@
 # CBP Persistence: COBRA
-## Technic specifications
+## Technical specifications
 The COBRA project (Change-Based Recording on Blockchain Architecture) aims to parse and save a model into a BlockChain. The project is divided in three main process groups:
 - **Parsing**: the first part of the project is to parse a CBP (Change Based Persistence) file into a iterable data structure. The file (BPMN2.cbpxml) contains some instructions executed onto a model (for example create a node, adding some attributes, changing them value, or adding a reference to another node). In this first step we aim to parse those instructions into, as said before, an iterable Java data structure, so that we can (in the following step) save those instance of the specified instructions into a BlockChain. Most of the parsing code has been taken from https://github.com/MDEGroup/NEMO, with some variation to it.
 - **Serializing/Deserializing**: to sava actual data in the BlockChain we need to serialize (or deserialize, depending on either we are pushing in bc on reading) the Data Structure in a less complex format: to archive this goal we used Jackson (https://github.com/FasterXML/jackson), a popular Java library used to serialize or deserialize more complex Data Structures. Using Jackson, we transformed the Data Structure in JSON, so that we can push those data in the BlockChain
